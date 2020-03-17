@@ -1,3 +1,4 @@
+
 # Random-quote-scrapper
 # It selects first quote from the randomly selected topic section of brainyquote.com
 
@@ -10,6 +11,10 @@ def extract(xyz): # function to extract quote and author name
     y = str(x[1]).split('<')
     z = y[0]
     return z
+
+def printl(): #function to print lines
+    print("_____________________________________________________________")
+    print()
 
 qSection = ["age-quotes","experience-quotes","alone-quotes","religion-quotes","famous-quotes","communication-quotes",
 "computers-section","cool-quotes","courage-quotes","imagination-quotes","independence-quotes","inspirational-quotes",
@@ -26,7 +31,9 @@ try:
     detail2 = soup.find('a',attrs={"title": "view author"})   #person who said the quote/author
     quote = extract(detail1)
     author = extract(detail2)
+    printl()
     print(quote, " - ", author)
+    printl()
 except:
     print("Error occured!")
     print("Error code :" ,page.status_code)
